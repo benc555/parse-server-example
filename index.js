@@ -16,7 +16,19 @@ var api = new ParseServer({
   appId: process.env.APP_ID || 'myAppId',
   masterKey: process.env.MASTER_KEY || '', //Add your master key here. Keep it secret!
   serverURL: process.env.SERVER_URL || 'http://localhost:1337',  // Don't forget to change to https if needed
-  facebookAppIds: ['1185467034797639']
+  facebookAppIds: ['1185467034797639'],
+  push: {
+      android: {
+        senderId: '...',
+        apiKey: '...'
+      },
+      ios: {
+        pfx: 'Cert.p12',
+        passphrase: '', // optional password to your p12/PFX
+        bundleId: 'hoosout.hoosoutapp.com',
+        production: false
+      }
+    }
 });
 // Client-keys like the javascript key or the .NET key are not necessary with parse-server
 // If you wish you require them, you can set them as options in the initialization above:
